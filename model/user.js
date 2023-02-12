@@ -18,6 +18,7 @@ const userSchema=new Schema({
         type:String,
         minlength:[6,"enter password minimum of 6 chars"]
     },
+    blockedBy:[{ type : mongoose.Schema.Types.ObjectId, ref: 'users' }]
 },{timestamps:true});
 
 userSchema.pre("save",async function(){
